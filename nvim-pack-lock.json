@@ -29,6 +29,10 @@
       "rev": "889e2e96edef4e144965571d46f7a77bcc4d0ddf",
       "src": "ssh://git@github.com/j-hui/fidget.nvim"
     },
+    "fzf-lua": {
+      "rev": "532d463f5c83595192fe740572d8fd6902b2217a",
+      "src": "https://github.com/ibhagwan/fzf-lua"
+    },
     "gitsigns.nvim": {
       "rev": "4ed47e8c4c66c921dc1d6643977e0526e1f44396",
       "src": "ssh://git@github.com/lewis6991/gitsigns.nvim"

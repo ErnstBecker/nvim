@@ -68,26 +68,26 @@ map("n", "<C-S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Prev buffer" })
 -- Search
 map("n", "<C-f>", "/", { desc = "Search forward" })
 map("n", "<leader><C-f>", function()
-	require("telescope.builtin").live_grep()
-end, { desc = "Find text with Telescope" })
+	require("fzf-lua").live_grep()
+end, { desc = "Find text with fzf-lua" })
 map("n", "<leader><Esc>", ":nohlsearch<CR>")
 
--- Telescope
+-- fzf-lua
 map("n", "<C-p>", function()
-	require("telescope.builtin").find_files()
+	require("fzf-lua").files()
 end)
-map("n", "<C-S-p>", ":Telescope commands<CR>")
-map("n", "<leader>gp", ":Telescope git_status<CR>")
+map("n", "<C-S-p>", "<cmd>FzfLua commands<CR>")
+map("n", "<leader>gp", "<cmd>FzfLua git_status<CR>")
 
 -- Git
 map("n", "<leader>gd", ":Gitsigns preview_hunk<CR>")
 
 -- ======= LSP =======
-map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { desc = "Go to definition"})
-map("n", "gr", "<cmd>Telescope lsp_references<CR>", { desc = "Go to reference" })
-map("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", { desc = "Go to definition"})
+map("n", "gr", "<cmd>FzfLua lsp_references<CR>", { desc = "Go to reference" })
+map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "variable rename" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "<leader>d", vim.diagnostic.open_float)
-map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>")
+map("n", "<leader>D", "<cmd>FzfLua diagnostics_document<CR>")
 map("n", "K", cmds.lsp_hover, { desc = "LSP Hover" })

@@ -20,12 +20,12 @@ require("transparent").setup({
 		"DiagnosticSignWarn",
 		"DiagnosticSignInfo",
 		"DiagnosticSignHint",
-		-- Telescope
-		"TelescopeNormal",
-		"TelescopeBorder",
-		"TelescopePromptNormal",
-		"TelescopeResultsNormal",
-		"TelescopePreviewNormal",
+		-- fzf-lua
+		"FzfLuaNormal",
+		"FzfLuaBorder",
+		"FzfLuaPreviewNormal",
+		"FzfLuaPreviewBorder",
+		"FzfLuaTitle",
 		-- Neo-tree
 		"NeoTreeNormal",
 		"NeoTreeNormalNC",

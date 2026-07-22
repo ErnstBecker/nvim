@@ -28,9 +28,9 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
 	dashboard.button("<C-n>", "  New file", ":ene <BAR> startinsert <CR>"),
-	dashboard.button("<C-o>", "  Find file", ":Telescope find_files <CR>"),
-	dashboard.button("<C-f>", "󰈬  Search for word", ":Telescope live_grep <CR>"),
-	dashboard.button("<C-r>", "  Recent files", ":Telescope oldfiles <CR>"),
+	dashboard.button("<C-o>", "  Find file", ":FzfLua files <CR>"),
+	dashboard.button("<C-f>", "󰈬  Search for word", ":FzfLua live_grep <CR>"),
+	dashboard.button("<C-r>", "  Recent files", ":FzfLua oldfiles <CR>"),
 	dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
