@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local cmds = require("newcmds")
 
 -- ======= INSERT =======
-map("n", "<Esc>", "i", { noremap = true })
+map("n", "<Esc>", "i")
 
 map("i", "<Tab>", function()
 	if require("blink.cmp").is_visible() then
@@ -52,21 +52,21 @@ end, { expr = true })
 
 -- ======= VISUAL MODE =======
 -- Indentation with tab
-map("v", "<Tab>", ">gv", { desc = "Indent selection" })
-map("v", "<S-Tab>", "<gv", { desc = "Unindent selection" })
+map("v", "<Tab>", ">gv")
+map("v", "<S-Tab>", "<gv")
 
 -- ======= NORMAL MODE =======
 -- Navigation and buffers
 -- map("n", "<C-b>", ":Neotree toggle right<CR>")
 map("n", "<C-b>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-map("n", "<C-w>", ":bdelete<CR>", { noremap = true, nowait = true })
+map("n", "<leader><C-w>", ":bdelete<CR>")
 map("n", "<leader>w", ":write<CR>")
 map("n", "<leader>q", ":quit!<CR>")
 map("n", "<C-Tab>", "<Plug>(cokeline-focus-next)", { desc = "Next buffer" })
 map("n", "<C-S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Prev buffer" })
 
 -- Search
-map("n", "<C-f>", "/", { desc = "Search forward" })
+map("n", "<C-f>", "/")
 map("n", "<leader><C-f>", function()
 	require("fzf-lua").live_grep()
 end, { desc = "Find text with fzf-lua" })
@@ -82,12 +82,15 @@ map("n", "<leader>gp", "<cmd>FzfLua git_status<CR>")
 -- Git
 map("n", "<leader>gd", ":Gitsigns preview_hunk<CR>")
 
+-- Database (dbee)
+map("n", "<leader>db", "<cmd>Dbee toggle<CR>")
+
 -- ======= LSP =======
-map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", { desc = "Go to definition"})
-map("n", "gr", "<cmd>FzfLua lsp_references<CR>", { desc = "Go to reference" })
-map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "Document symbols" })
-map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "variable rename" })
-map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>")
+map("n", "gr", "<cmd>FzfLua lsp_references<CR>")
+map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>")
+map("n", "<leader>rn", vim.lsp.buf.rename)
+map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 map("n", "<leader>d", vim.diagnostic.open_float)
 map("n", "<leader>D", "<cmd>FzfLua diagnostics_document<CR>")
-map("n", "K", cmds.lsp_hover, { desc = "LSP Hover" })
+map("n", "K", cmds.lsp_hover)
