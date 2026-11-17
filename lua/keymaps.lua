@@ -1,5 +1,4 @@
 local map = vim.keymap.set
-local cmds = require("newcmds")
 
 -- ======= INSERT =======
 map("n", "<Esc>", "i")
@@ -61,7 +60,7 @@ map("v", "<S-Tab>", "<gv")
 map("n", "<C-b>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 map("n", "<leader><C-w>", ":bdelete<CR>")
 map("n", "<leader>w", ":write<CR>")
-map("n", "<leader>q", ":quit!<CR>")
+map("n", "<leader>q", ":quit<CR>")
 map("n", "<C-Tab>", "<Plug>(cokeline-focus-next)", { desc = "Next buffer" })
 map("n", "<C-S-Tab>", "<Plug>(cokeline-focus-prev)", { desc = "Prev buffer" })
 
@@ -87,10 +86,6 @@ map("n", "<leader>db", "<cmd>Dbee toggle<CR>")
 
 -- ======= LSP =======
 map("n", "gd", "<cmd>FzfLua lsp_definitions<CR>")
-map("n", "gr", "<cmd>FzfLua lsp_references<CR>")
-map("n", "<leader>ls", "<cmd>FzfLua lsp_document_symbols<CR>")
-map("n", "<leader>rn", vim.lsp.buf.rename)
-map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-map("n", "<leader>d", vim.diagnostic.open_float)
+map("n", "grr", "<cmd>FzfLua lsp_references<CR>")
+map("n", "gO", "<cmd>FzfLua lsp_document_symbols<CR>")
 map("n", "<leader>D", "<cmd>FzfLua diagnostics_document<CR>")
-map("n", "K", cmds.lsp_hover)
