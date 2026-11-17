@@ -20,6 +20,7 @@ vim.opt.number       = true
 vim.opt.relativenumber = true
 vim.opt.cursorline   = true
 vim.opt.cursorlineopt = "number"
-vim.opt.signcolumn   = "yes"
+vim.opt.signcolumn   = "yes:1"
+vim.opt.winborder    = "single"
 vim.opt.list         = true
 vim.opt.listchars    = { tab = "  ", lead = "·", trail = "·", nbsp = "␣", extends = "…" }

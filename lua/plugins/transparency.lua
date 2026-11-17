@@ -20,6 +20,15 @@ require("transparent").setup({
 		"DiagnosticSignWarn",
 		"DiagnosticSignInfo",
 		"DiagnosticSignHint",
+		-- Floats / completion (blink.cmp)
+		"FloatBorder",
+		"Pmenu",
+		"BlinkCmpMenu",
+		"BlinkCmpMenuBorder",
+		"BlinkCmpDoc",
+		"BlinkCmpDocBorder",
+		"BlinkCmpSignatureHelp",
+		"BlinkCmpSignatureHelpBorder",
 		-- fzf-lua
 		"FzfLuaNormal",
 		"FzfLuaBorder",
