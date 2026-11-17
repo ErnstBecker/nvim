@@ -34,15 +34,4 @@ dashboard.section.buttons.val = {
 	dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
-vim.api.nvim_create_autocmd("User", {
-	pattern = "AlphaReady",
-	callback = function()
-		vim.api.nvim_create_autocmd("WinResized", {
-			callback = function()
-				pcall(require("alpha").redraw)
-			end,
-		})
-	end,
-})
-
 require("alpha").setup(dashboard.opts)

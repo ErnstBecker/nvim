@@ -17,14 +17,24 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- Reopen alpha when the last buffer is closed
 vim.api.nvim_create_autocmd("BufDelete", {
-	callback = function()
-		local unlisted = vim.iter(vim.fn.tabpagebuflist()):filter(function(b)
-			return vim.fn.buflisted(b) == 0
-		end):totable()
-		if #unlisted == 0 and vim.fn.winnr("$") == 1 then
-			vim.cmd.Alpha()
+	callback = function(ev)
+		-- Ignore unlisted buffers (alpha, oil, fzf...)
+		if not vim.bo[ev.buf].buflisted then
+			return
 		end
+		vim.schedule(function()
+			-- Only if a single window is left on an empty buffer
+			if
+				vim.fn.winnr("$") == 1
+				and vim.bo.buftype == ""
+				and vim.api.nvim_buf_get_name(0) == ""
+				and not vim.bo.modified
+			then
+				vim.cmd.Alpha()
+			end
+		end)
 	end,
 })
 
